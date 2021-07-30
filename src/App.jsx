@@ -42,7 +42,7 @@ export default class App extends Component {
         this.setState({ status: 'rejected' });
       }
 
-      this.state.page > 1 &&
+      page > 1 &&
         window.scrollTo({
           top: document.documentElement.scrollHeight,
           behavior: 'smooth',
