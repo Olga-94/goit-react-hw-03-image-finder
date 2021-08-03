@@ -37,16 +37,17 @@ export default class App extends Component {
           images: [...prevState.images, ...images],
           status: 'resolved',
         }));
+
+        if (page > 1) {
+          window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth',
+          });
+        }
       } catch (error) {
         onErrorNotification();
         this.setState({ status: 'rejected' });
       }
-
-      page > 1 &&
-        window.scrollTo({
-          top: document.documentElement.scrollHeight,
-          behavior: 'smooth',
-        });
     }
   }
 
@@ -100,11 +101,12 @@ export default class App extends Component {
       return (
         <>
           <SearchBar onSubmit={this.handleFormSubmit} />
-          <Spinner />
+
           <ImageGallery
             images={images}
             selectedImage={this.handleSelectedImage}
           />
+          <Spinner />
           {images.length > 0 && (
             <LoadMoreButton onClick={this.loadMoreBtnClick} />
           )}
