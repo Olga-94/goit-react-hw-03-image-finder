@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Api } from './Services/Api-service';
+import { StyledApp } from './App.styled';
 import { onErrorNotification } from './Services/Notification';
 import SearchBar from './Components/SearchBar/SearchBar';
 import ImageGallery from './Components/ImageGallery/ImageGallery';
@@ -99,7 +100,7 @@ export default class App extends Component {
 
     if (status === 'pending') {
       return (
-        <>
+        <StyledApp>
           <SearchBar onSubmit={this.handleFormSubmit} />
 
           <ImageGallery
@@ -110,13 +111,13 @@ export default class App extends Component {
           {images.length > 0 && (
             <LoadMoreButton onClick={this.loadMoreBtnClick} />
           )}
-        </>
+        </StyledApp>
       );
     }
 
     if (status === 'resolved') {
       return (
-        <>
+        <StyledApp>
           <SearchBar onSubmit={this.handleFormSubmit} />
           <ImageGallery
             images={images}
@@ -132,15 +133,15 @@ export default class App extends Component {
           {images.length > 0 && (
             <LoadMoreButton onClick={this.loadMoreBtnClick} />
           )}
-        </>
+        </StyledApp>
       );
     }
 
     if (status === 'rejected') {
       return (
-        <>
+        <StyledApp>
           <SearchBar onSubmit={this.handleFormSubmit} />
-        </>
+        </StyledApp>
       );
     }
   }

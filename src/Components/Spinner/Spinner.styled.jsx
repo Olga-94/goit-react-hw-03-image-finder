@@ -8,3 +8,10 @@ export const LoaderContainer = styled.div`
   width: 100vw;
   height: 100vh;
 `;
+
+// export const Loader = styled.loader`
+//   display: flex;
+//   height: calc(100vh - 72px);
+//   align-items: center;
+//   justify-content: center;
+// `;
